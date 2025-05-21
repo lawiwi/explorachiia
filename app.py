@@ -16,7 +16,7 @@ app = Flask(__name__, template_folder='Templates')
 
 @app.route("/")
 def chiaentre():
-    return render_template('Chia/iniciachia.html')
+    return render_template('Chia/Iniciachia.html')
 
 @app.route('/prediccion/<empresa>', methods=['GET'])
 def prediccion_empresa(empresa):
