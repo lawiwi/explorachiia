@@ -1,0 +1,444 @@
+<!-- templates/EvaluacionModelo.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluación de Modelos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff0f9; 
+        }
+        .sidebar {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .nav-link.active {
+            background-color: #e0f2fe; 
+            color: #0369a1; 
+            font-weight: 600;
+        }
+        
+        .article-title {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-top: 1.5rem; 
+            margin-bottom: 1rem;
+        }
+        .sub-article-title {
+            font-size: 1.25rem; 
+            font-weight: 600;
+            margin-top: 1.5rem; 
+            margin-bottom: 1rem;
+        }
+        .content-card {
+            padding: 2rem; 
+            border-radius: 0.75rem; 
+            box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+            margin-bottom: 2.5rem;
+            border: 1px solid;
+        }
+
+        .content-card.pastel-sky {
+            background-color: #e6f4f5; 
+            border-color: #b7e0e3;
+        }
+
+        .content-card.pastel-sky .section-title,
+        .content-card.pastel-sky .article-title,
+        .content-card.pastel-sky .sub-article-title {
+            color: #065663;
+        }
+
+        .content-card.pastel-indigo {
+            background-color: #f0f2ff;
+            border-color: #e0e7ff;
+        }
+
+        .content-card.pastel-indigo .section-title,
+        .content-card.pastel-indigo .article-title,
+        .content-card.pastel-indigo .sub-article-title{
+            color: #4338ca;
+        }
+
+        .main-title-area {
+            text-align: center;
+            padding: 1.5rem 1rem;
+           background-color: #ede7f6; 
+        border-bottom: 1px solid #d1c4e9;;
+            margin-bottom:2.5rem; 
+        }
+        .main-title-area h1 {
+            font-size: 2rem; 
+            font-weight: 700;
+            color: #ae4af1; 
+        }
+        .main-title-area .subtitle {
+            font-size: 1rem; 
+            color: #ae4af1;
+        }
+        .main-container {
+            display: flex;
+            gap: 2rem; 
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .main-container {
+                flex-direction: row;
+            }
+        }
+        .main-content-area {
+            flex-grow: 1;
+        }
+        .btn {
+            padding: 0.8rem 1.6rem; 
+            border-radius: 0.75rem; 
+            font-weight: 600;
+            transition: all 0.3s ease-in-out; 
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            border: none;
+        }
+        .btn:hover {
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+        }
+        .btn-primary {
+            background-color: #4299e1; 
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #3182ce; 
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 2rem; 
+            margin-bottom: 1.5rem; 
+        }
+        li {
+            margin-bottom: 0.75rem; 
+            color: #546e7a;
+        }
+        p {
+            line-height: 1.75; 
+            margin-bottom: 1.5rem; 
+            color: #6b7280; 
+        }
+        .info-card {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 2rem; 
+            border-radius: 0.75rem; 
+            margin-bottom: 1.5rem; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .info-card-title {
+            font-size: 1.25rem; 
+            font-weight: 600;
+            color: #2d3748; 
+            margin-bottom: 0.75rem; 
+        }
+
+        
+        .image-placeholder-container {
+            width: 100%; 
+        }
+        @media (min-width: 768px) { 
+            .image-placeholder-container {
+                width: 33.333333%; 
+                padding-left: 1rem; 
+        }
+
+        .image-placeholder {
+            background-color: #ffffff;
+            border: 2px dashed #a0aec0; 
+            border-radius: 0.75rem; 
+            padding: 1.5rem; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px; 
+            height: 100%;
+            font-size: 0.9rem; 
+            color: #718096; 
+        }
+        .image-placeholder img {
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 250px; /* Ajustado */
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar {
+            width: 100%;
+           
+            background-color: #f7fafc; 
+            padding: 2rem; 
+            border-radius: 1rem; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            margin-bottom: 2rem; 
+        }
+        .sidebar h2 {
+            font-size: 1.5rem; 
+            font-weight: 600;
+            color: #4a5568; 
+            margin-bottom: 1.5rem; 
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+        .sidebar nav ul {
+            margin-bottom: 0.125rem; 
+        }
+        .sidebar nav ul li a {
+            display: block;
+            padding: 0.25rem; 
+            color: #718096; 
+            border-radius: 0.5rem; 
+            transition: all 0.3s ease-in-out; 
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .sidebar nav ul li a:hover {
+            background-color: #edf2f7; 
+            color: #4a5568; 
+            transform: translateX(4px); 
+        }
+        .sidebar nav ul li a.active {
+            background-color: #4299e1; 
+            color: white;
+            font-weight: 600;
+        }
+       
+        .content-card .section-title {
+            margin-bottom: 0.5rem; 
+        } /* Added missing closing brace */
+        .text-content {
+             margin-bottom: 1rem; 
+        }
+        @media (min-width: 768px) { 
+                margin-bottom: 0; 
+        }
+    </style>
+</head>
+
+<body class="text-slate-700">
+    <div class="main-container max-w-screen-xl mx-auto p-4 md:p-4 lg:p-4">
+        <aside class="sidebar w-full md:w-1/7 lg:w-1/10 bg-white p-6 rounded-xl shadow-lg mb-8 md:mb-0">
+            <h2 class="text-xl font-semibold text-slate-700 mb-6 border-b pb-3">Navegación del Proyecto</h2>
+            <nav>
+                <ul class="space-y-1">
+                    <li><a href="#metricas-desempeño" class="nav-link">1.Metricas de Desempeño</a></li>
+                    <li><a href="#validacion-cruzada" class="nav-link">2.Validación Cruzada</a></li>
+                    <li><a href="#analisis-riesgos" class="nav-link">3.Analisis de Riesgos</a></li>
+                    <li><a href="#subajuste-riegos" class="nav-link ml-4 block px-3 py-2 text-sm text-slate-500 hover:bg-sky-50 hover:text-sky-600 rounded-md transition-colors duration-150">3.1. Subajuste</a></li>
+                    <li><a href="#sobreajuste-riegos" class="nav-link ml-4 block px-3 py-2 text-sm text-slate-500 hover:bg-sky-50 hover:text-sky-600 rounded-md transition-colors duration-150">3.2. SobreAjuste</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content-area">
+            <div class="main-title-area">
+                <h1>Proyecto "ExploraChia"</h1>
+                <p class="subtitle">Ingenieria del modelo</p>
+            </div>
+
+            <section id="metricas-desempeño" class="content-card pastel-sky">
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-x-6"> 
+                    <div class="md:w-2/3 text-content">
+                        <h2 class="section-title">Metricas de Desempeño</h2>
+                        <p>
+                            Para evaluar el rendimiento de los modelos de clasificación utilizados en este proyecto, se seleccionaron métricas clave que permiten analizar su precisión y capacidad predictiva. Entre estas se incluyen la matriz de confusión, que muestra la relación entre predicciones correctas e incorrectas; la precisión, que indica la proporción de verdaderos positivos entre las predicciones positivas; la sensibilidad o recall, que mide la capacidad del modelo para identificar correctamente los casos positivos; y el F1-score, que equilibra precisión y sensibilidad en una sola métrica. Estas métricas ofrecen una visión integral del comportamiento del modelo frente a los datos real
+                        </p>
+                    </div>
+                    <div class="image-placeholder-container md:w-1/3">
+                        <div class="image-placeholder">
+
+                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKWWwH4AvoCbarM-PCVMVbbdSjqSDunh_ymQ&s" 
+                         alt="">
+                        </div>
+                    </div>
+            </section>
+
+            <section class="content-card pastel-sky">
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-x-6"> 
+                    <div class="md:w-2/3 text-content">
+                        <h1>Selecciona una empresa para ver sus métricas</h1>
+                        <form action="/evaluar_modelo" method="post">
+                            <select name="empresa">
+                            <option value="centrochia">Centro Chía</option>
+                            <option value="fontanar">Fontanar</option>
+                            <option value="celestina">Restaurante Celestina</option>
+                            <option value="galapagoc">Restaurante Galapago Campestre</option>
+                            <option value="laspuertas">Restaurante Las Puertas</option>
+                            <option value="montañaoso">Parque la Montaña del Oso</option>
+                            <option value="parquecentrochia">Parque Centro Chia</option>
+                            <option value="playzonevip">PlayZone VIP</option>
+                            <option value="teatrofah">Teatro Fahreheint</option>
+                            <option value="tierraroja">Restaurante Tierra Roja</option>
+                            </select>
+                            <button type="submit">Ver Métricas</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="validacion-cruzada" class="content-card pastel-indigo">
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-x-6"> 
+                    <div class="md:w-2/3 text-content">
+                        <h2 class="section-title">Validacion Cruzada</h2>
+                        <p>
+                            En este proyecto se utilizó validación cruzada de 5 particiones para estimar el error del modelo en nuevos datos, asegurando que las métricas reportadas no dependan de una única división entrenamiento/prueba.
+                        </p>
+                    </div>
+                    <div class="image-placeholder-container md:w-1/3">
+                        <div class="image-placeholder">
+
+                         <img src="https://miro.medium.com/v2/resize:fit:1400/1*0apWuaTKNZa2CW_mzxtFyw.png" 
+                         alt="">
+                        </div>
+                    </div>
+            </section>
+
+
+            <section class="content-card pastel-indigo">
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-x-6"> 
+                    <div class="md:w-2/3 text-content">
+                        <h1>Selecciona una empresa para ver su validacion cruzada</h1>
+                        <form action="/validacion_modelo" method="post">
+                            <select name="empresa">
+                            <option value="centrochia">Centro Chía</option>
+                            <option value="fontanar">Fontanar</option>
+                            <option value="celestina">Restaurante Celestina</option>
+                            <option value="galapagoc">Restaurante Galapago Campestre</option>
+                            <option value="laspuertas">Restaurante Las Puertas</option>
+                            <option value="montañaoso">Parque la Montaña del Oso</option>
+                            <option value="parquecentrochia">Parque Centro Chia</option>
+                            <option value="playzonevip">PlayZone VIP</option>
+                            <option value="teatrofah">Teatro Fahreheint</option>
+                            <option value="tierraroja">Restaurante Tierra Roja</option>
+                            </select>
+                            <button type="submit">Ver Validacion</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="analisis-riesgos" class="content-card pastel-indigo">
+                <h2 class="section-title">3. Análisis de Riesgos</h2>
+                 <div class="md:flex md:space-x-8 items-start mb-8">
+                     <div class="md:w-2/3">
+                        <p>Se identificaron posibles riesgos relacionados con el sobreajuste, en el que el modelo aprende demasiado bien los datos de entrenamiento y pierde capacidad de generalización. También se consideró el subajuste, que ocurre cuando el modelo no logra captar patrones importantes en los datos, lo que afecta su rendimiento.</p>
+                    </div>
+                    <div class="md:w-1/3 mt-6 md:mt-0">
+                     
+                    </div>
+                </div>
+
+                <article id="subajuste-riegos" class="mt-8">
+                    <div class="md:flex md:space-x-6 items-start">
+                        <div class="md:w-2/3">
+                            <h3 class="article-title">3.1. Subajuste</h3>
+                            <div class="info-card mb-4">
+                                <p class="info-card-title">Modelo con muy pocas variables predictoras</p>
+                                <p>Al inicio del proyecto, los modelos solo utilizaban la fecha o el número de comentarios diarios como entrada. Esto no capturaba información importante como el día de la semana, el mes o si era temporada alta, lo cual limita la capacidad del modelo para aprender patrones relevantes</p>
+                            </div>
+                            <div class="info-card">
+                                <p class="info-card-title">Modelo muy simple (por ejemplo, Regresión Lineal básica)</p>
+                                <p>En etapas tempranas, si se usó un modelo demasiado simple (como una regresión sin variables categóricas o sin interacciones), no se logró captar relaciones no lineales en los datos.</p>
+                            </div>
+                            <div class="info-card">
+                                <p class="info-card-title">Entrenamiento con pocos datos</p>
+                                <p>Algunos sitios tienen menos de 100 comentarios, lo cual puede haber llevado a un modelo poco entrenado que no generaliza bien.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="sobreajuste-riegos" class="mt-8">
+                    <div class="md:flex md:space-x-6 items-start">
+                        <div class="md:w-2/3">
+                            <h3 class="article-title">3.2. Sobreajuste</h3>
+                            <div class="info-card mb-4">
+                                <p class="info-card-title">Modelo ajustado a series con pocos datos y ruido</p>
+                                <p>Si se entrenó un modelo muy complejo (como Random Forest con muchos árboles) sobre un conjunto de datos pequeño o muy específico de un sitio, este pudo aprender los “picos” de visitas de manera exacta, pero fallar al generalizar</p>
+                            </div>
+                            <div class="info-card">
+                                <p class="info-card-title">Uso excesivo de variables irrelevantes o correlacionadas</p>
+                                <p>Si se incluyeron muchas variables (por ejemplo, múltiples dummies por mes, sin regularización o selección), el modelo podría haber aprendido patrones espurios.</p>
+                            </div>
+                            <div class="info-card">
+                                <p class="info-card-title">Entrenamiento sin validación cruzada adecuada</p>
+                                <p>Si no se separaron bien los datos de entrenamiento y prueba, o no se usó una validación temporal, el modelo pudo haber aprendido los datos de entrada sin poder generalizar a nuevas fechas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+        const navLinks = document.querySelectorAll(".nav-link");
+        const sectionsForScrollSpy = document.querySelectorAll("section[id]");
+
+        const scrollHandler = () => {
+            let current = "";
+            sectionsForScrollSpy.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) { 
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").substring(1) === current) {
+                    link.classList.add("active");
+                }
+            });
+        };
+
+        window.addEventListener("scroll", scrollHandler, { passive: true });
+
+        navLinks.forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute("href").substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    navLinks.forEach((link) => link.classList.remove("active"));
+                    this.classList.add("active");
+
+                    const offset = 100; 
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = targetElement.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth",
+                    });
+
+                    if (history.pushState) {
+                        history.pushState(null, null, `#${targetId}`);
+                    } else {
+                        location.hash = `#${targetId}`;
+                    }
+                }
+            });
+        });
+        scrollHandler();
+    </script>
+</body>
+</html>

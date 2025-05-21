@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <script src="https://kit.fontawesome.com/50956a932a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estiloschia.css') }}">
+    <script src="{{ url_for('static', filename='librochia.js') }}" defer></script>
+</head>
+<body>
+
+    <!-- Contenedor General -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <header class="main-header">
+            <h1>Shopping</h1>
+            <div class="header-content">
+                <img src="/static/logoe.png" alt="Logo entretenimiento Chía" class="header-logo" style="width: 180px; height: auto; margin-right: 20px;">
+                    <p class="subtitle">Descubre las mejores opciones de entretenimiento, comida y aventura</p>
+            </div>
+            <div class="button-container">
+                <button class = "category-button comida" onclick="location.href='Restaurantes.html'">
+                    🍽️ Comida y Bebida
+                    <span>Restaurantes, cafés y bares</span>
+                </button>
+                <button class = "category-button arte" onclick="location.href='arte-cultura.html'">
+                    🎨 Arte y Cultura
+                    <span>Museos, galerías y eventos</span>
+                </button>
+                <button class = "category-button nat" onclick="location.href='naturaleza.html'">
+                    🌳 Naturaleza
+                    <span>Parques y espacios al aire libre</span>
+                </button>
+                <button class = "category-button ocio" onclick="location.href='ocio.html'">
+                    🎭 Ocio y Entretenimiento
+                    <span>Cines, teatros y diversión</span>
+                </button>
+                <button class = "category-button depo" onclick="location.href='deportes.html'">
+                    ⚽ Deportes
+                    <span>Actividades deportivas</span>
+                </button>
+                <button class = "category-button shop" onclick="location.href='compras.html'">
+                    🛍️ Compras
+                    <span>Centros comerciales y tiendas</span>
+                </button>
+            </div>
+        </header>
+        
+
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+        <!-- Previous Button -->
+        <button id="prev-btn">
+            <i class="fas fa-arrow-circle-left"></i>
+        </button>
+
+
+        <!-- Book -->
+        <div id="book" class="book">
+            <!-- Paper 1 -->
+            <div id="p1" class="paper">
+                <div class="front">
+                    <div id="f1" class="front-content">
+                        <h2>Front 1</h2>
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b1" class="back-content">
+                        <h2>Back 1</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Paper 2 -->
+            <div id="p2" class="paper">
+                <div class="front">
+                    <div id="f2" class="front-content">
+                        <h1>Front 2</h1>
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b2" class="back-content">
+                        <h1>Back 2</h1>
+                    </div>
+                </div>
+            </div>
+            <!-- Paper 3 -->
+            <div id="p3" class="paper">
+                <div class="front">
+                    <div id="f3" class="front-content">
+                        <h1>Front 3</h1>
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b3" class="back-content">
+                        <h1>Back 3</h1>
+                    </div>
+                </div>
+            </div>
+            <!-- Paper 3 -->
+            <div id="p4" class="paper">
+                <div class="front">
+                    <div id="f4" class="front-content">
+                        <h1>Front 4</h1>
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b4" class="back-content">
+                        <h1>Back 4</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Button -->
+        <button id="next-btn">
+            <i class="fas fa-arrow-circle-right"></i>
+        </button>
+    </div>
+    </div>
+</body>
+</html>

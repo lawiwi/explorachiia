@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de</title>
+    <script src="https://kit.fontawesome.com/50956a932a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='EstiloAcercade.css') }}">
+</head>
+
+<body>
+
+  <!-- HEADER PRINCIPAL -->
+  <header class="main-header-style1">
+    <img src="{{ url_for('static', filename='/img/logoe.png') }}" alt="Logo de ExploraChia" class="header-logo-style1">
+    <span class="header-title-style1">ExploraChía</span>
+
+    <div class="header-buttons">
+      <a href="/Chia/Empresas" class="header-btn">¿Eres Empresario?</a>
+      <a href="/" class="header-btn">Catalogos Explora Chía</a>
+    </div>
+  </header>
+
+  <!-- BLOQUE DE INTRODUCCIÓN -->
+  <section class="intro-horizontal">
+      <img src="{{ url_for('static', filename='img/logoe.png') }}" alt="Logo ExploraChia" class="logo-horizontal">
+
+      <div class="intro-text">
+          <h2>Sobre Este Proyecto</h2>
+          <p>
+            <strong>En esta pestaña</strong> encontrarás una descripción general del proyecto desde una perspectiva académica y metodológica. Se presenta la metodología CRISP-ML, el Objetivos de Desarrollo Sostenible (ODS) relacionado, una introducción al enfoque del proyecto y los objetivos principales que guiaron su desarrollo. Esta sección permite comprender el contexto, propósito y estructura técnica del trabajo realizado.
+          </p>
+      </div>
+      <img src="https://www.claseejecutiva.com.mx/wp-content/uploads/2022/10/machine-learning-proyecto-exitoso-machine-learning.jpg" alt="MachineLearning" class="intro-image">
+  </section>
+
+    <div class="main-buttons-container">
+      <button onclick="window.open('https://www.canva.com/design/DAGmvDgAIXU/-P71Obs4ue7EIpoBoiGmrA/view?utm_content=DAGmvDgAIXU&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h489216cf55', '_blank')" class="main-btn">Canvas - Presentación</button>
+    </div>
+
+    <!-- BLOQUE DE METODOLOGIA -->
+    <section class="intro-horizontal-style1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY3URpAG7BuwDfO_v3Lu8ZyW1NKivjsMSGIA&s" alt="crispml" class="logo-horizontal">
+
+      <div class="intro-text">
+          <h2>Metodologia CRISP-ML</h2>
+          <p>
+            <strong>Para el desarrollo del sistema de predicción</strong> se emplea la metodología CRISP-ML (Cross-Industry Standard Process for Machine Learning), la cual permite estructurar el proceso de creación de modelos predictivos de manera ordenada y eficiente. Esta metodología abarca desde la comprensión del negocio y la recolección de datos (como comentarios y registros de visitas), hasta el preprocesamiento, entrenamiento con algoritmos como Random Forest, evaluación del modelo y su posterior integración en una aplicación web interactiva. Esta estructura asegura que el sistema se alinee con los objetivos de las empresas locales y que los resultados sean útiles, interpretables y sostenibles en el tiempo.
+      </div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgYHyp_wLpM9PwT46nPwJh99dc5GGBWlLN7w&s" alt="crisp" class="intro-image">
+    </section>
+
+    <div class="main-buttons-container">
+      <button onclick="location.href='/Chia/Acercade/EntendimientoDelNegocio'" class="main-btn">Entendimiento del Negocio y Datos</button>
+      <button onclick="location.href='/Chia/Acercade/IngenieriaDatos'" class="main-btn">Ingenieria de Datos</button>
+      <button onclick="location.href='/Chia/Acercade/IngenieriaModelo'" class="main-btn">Ingenieria del Modelo</button>
+      <button onclick="location.href='/Chia/Acercade/EvaluacionModelo'" class="main-btn">Evaluación del Modelo</button>
+    </div>
+
+    <!-- BLOQUE DE PLANTEAMIENTO -->
+    <section class="intro-horizontal">
+      <img src="https://frenetica.net/wp-content/uploads/2020/11/planteamiento-del-problema1.jpg" alt="IDEA" class="logo-horizontal">
+
+      <div class="intro-text">
+          <h2>Planteamiento del problema</h2>
+          <p>
+            <strong>En el municipio de Chía, </strong> muchas empresas dedicadas al entretenimiento enfrentan dificultades para atraer y mantener visitantes debido a la falta de visibilidad digital y herramientas que les permitan anticiparse a la demanda. Esta ausencia de información impide una adecuada planificación de recursos, estrategias de promoción efectivas y aprovechamiento de temporadas altas, afectando directamente su sostenibilidad y crecimiento.
+          </p>
+      </div>
+            <img src="https://www.buscador.com/wp-content/uploads/2020/04/idea-planteamiento-del-problema.jpg" alt="Ideaplan" class="intro-image">
+    </section>
+
+    <!-- BLOQUE DE JUSTIFICACION -->
+    <section class="intro-horizontal-style1">
+      <img src="https://duga8983.files.wordpress.com/2013/12/justificacion222.png" alt="IDEA" class="logo-horizontal">
+
+      <div class="intro-text">
+          <h2>Justificación</h2>
+          <p>
+            <strong>Este proyecto </strong> busca brindar una solución basada en datos e inteligencia artificial que permita a las empresas locales conocer patrones de visitas y predecir la afluencia de clientes, mejorando su capacidad de decisión. Al centralizar esta información en una plataforma web accesible, se fortalece la competitividad empresarial, se impulsa el desarrollo económico local y se fomenta el uso de tecnología en la gestión comercial del sector entretenimiento de Chía.
+          </p>
+      </div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbX6uPwx8LbtdQEhjVEK16tsilNYho9IVHdg&s" alt="Ideaplan" class="intro-image">
+    </section>
+
+
+    <!-- BLOQUE DE ODS -->
+    <section class="intro-horizontal">
+      <img src="https://www.un.org/sustainabledevelopment/es/wp-content/uploads/sites/3/2016/01/S_SDG_Icons-01-08.jpg" alt="Logo ODS" class="logo-horizontal">
+
+      <div class="intro-text">
+          <h2>ODS 8: Trabajo decente y crecimiento económico</h2>
+          <p>
+            <strong>El proyecto se alinea con este Objetivo de Desarrollo Sostenible </strong>al promover el fortalecimiento del sector empresarial local en Chía mediante herramientas tecnológicas que mejoran la visibilidad y gestión de los sitios de entretenimiento. Al ofrecer predicciones de visitas basadas en datos y analítica, se impulsa la toma de decisiones informadas, lo cual favorece el crecimiento económico sostenible, la innovación en los servicios y la generación de oportunidades de empleo, especialmente para jóvenes y pequeños emprendedores de la región.
+          </p>
+      </div>
+            <img src="https://149562642.v2.pressablecdn.com/wp-content/uploads/crecimiento-economico.jpeg" alt="MachineLearning" class="intro-image">
+    </section>
+
+</body>

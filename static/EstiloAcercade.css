@@ -1,0 +1,154 @@
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER PRINCIPAL */
+.main-header-style1 {
+    background-color: #4c98af;
+    color: white;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+.header-logo-style1 {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.header-title-style1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-buttons {
+    margin-left: auto; /* Empuja los botones a la derecha */
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.header-btn {
+    text-decoration: none;
+    background-color: white;
+    color: #4c98af;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 30px;
+    align-self: center;
+    transition: background-color 0.3s;
+}
+
+.header-btn:hover {
+    background-color: #e0f0f7;
+}
+
+/* INTRODUCCIÓN */
+.intro-horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 80px 10px;
+    background-color: #d1f2f8;
+    flex-wrap: wrap;
+    
+}
+
+.intro-horizontal-style1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 80px 10px;
+    background-color: #d1daf8;
+    flex-wrap: wrap;
+    
+}
+
+.logo-horizontal,
+.intro-image {
+    height: 250px; /* Aumentamos tamaño para igualar altura del texto */
+    object-fit: contain;
+}
+
+.intro-text {
+    max-width: 400px;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.intro-text h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+    color: #2e7d32;
+}
+
+.intro-image {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ANIMACIÓN */
+/* Animación suave de entrada */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplica la animación a todo el contenido principal */
+.intro-horizontal,
+.mision-vision,
+.valores,
+.mision-vision-content {
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.main-buttons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 60px 30px 40px; /* Espacio debajo del intro */
+    background-color: #ffffff;
+}
+
+.main-btn {
+    text-decoration: none;
+    background-color: #4c98af;
+    color: white;
+    padding: 20px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    min-width: 220px;
+    text-align: center;
+}
+
+.main-btn:hover {
+    background-color: #3a7e94;
+}

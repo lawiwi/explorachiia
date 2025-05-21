@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploraChia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='EstiloEmpresas.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="{{ url_for('static', filename='predicciones.js') }}" defer></script>
+</head>
+
+<body>
+    
+  <!-- HEADER PRINCIPAL -->
+  <header class="main-header-style1">
+    <img src="{{ url_for('static', filename='/img/logoe.png') }}" alt="Logo de ExploraChia" class="header-logo-style1">
+    <span class="header-title-style1">ExploraChía</span>
+
+    <div class="header-buttons-style1">
+      <a href="/Chia/Acercade" class="header-btn-style1">Acerca de este proyecto</a>
+      <a href="/" class="header-btn-style1">Catalogos Explora Chía</a>
+    </div>
+  </header>
+
+  <!-- BLOQUE DE INTRODUCCIÓN -->
+  <section class="intro-horizontal">
+      <img src="{{ url_for('static', filename='img/logoe.png') }}" alt="Logo ExploraChia" class="logo-horizontal">
+
+      <div class="intro-text">
+          <h2>¡Bienvenido Empresario!</h2>
+          <p>
+            <strong>En esta pestaña</strong> encontrarás una descripción general del proyecto desde una perspectiva académica y metodológica. Se presenta la metodología CRISP-ML, el Objetivos de Desarrollo Sostenible (ODS) relacionado, una introducción al enfoque del proyecto y los objetivos principales que guiaron su desarrollo. Esta sección permite comprender el contexto, propósito y estructura técnica del trabajo realizado.
+          </p>
+      </div>
+
+      <img src="https://www.repsol.com/content/dam/repsol-corporate/es/energia-e-innovacion/robot-machine-learning.jpg.transform/rp-rendition-sm/image.jpg  " alt="MachineLearning" class="intro-image">
+  </section>
+  
+  <!-- BOTONES -->
+    <div class="header-buttons">
+        <button class="header-btn" id="todosBtn">Todos</button>
+        <button class="header-btn" id="comidaBtn">Comida</button>
+        <button class="header-btn" id="ocioBtn">Ocio</button>
+        <button class="header-btn" id="deportesBtn">Recreación</button>
+    </div>
+
+    <div class="categories">
+        <div class="tarjetas-contenedor" id="comida" style="display: grid;">
+            <div class="tarjeta-servicio">
+                <img src="https://ugc.production.linktr.ee/1ToCv3vwQsSSpt8m1Iqu_Captura%20de%20Pantalla%202021-11-15%20a%20la(s)%203.37.31%20p.%C2%A0m..png?io=true&size=thumbnail-stack-v1_0" alt="El Galapago Campestre">
+                <h3>El Galapago Campestre</h3>
+                <a href="{{ url_for('prediccion_empresa', empresa='galapagoc') }}" class="boton-servicio">Ver Predicciones</a>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO0kHs1cpyaqbBmNyhpiQl4nM-O3hqJpnsEQ&s" alt="Celestina">
+                <h3>Celestina</h3>
+                <a href="{{ url_for('prediccion_empresa', empresa='celestina') }}" class="boton-servicio">Ver Predicciones</a>
+            </div>
+
+                <div class="tarjeta-servicio">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/93/4b/67/la-vista-exterior-de.jpg?w=900&h=-1&s=1" alt="Tierra Roja">
+                <h3>Tierra Roja</h3>
+                <a href="{{ url_for('prediccion_empresa', empresa='tierraroja') }}" class="boton-servicio">Ver Predicciones</a>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/9e/1a/d2/caption.jpg?w=1200&h=-1&s=1" alt="Las puertas">
+                <h3>Las Puertas</h3>
+                <a href="{{ url_for('prediccion_empresa', empresa='laspuertas') }}" class="boton-servicio">Ver Predicciones</a>
+            </div>
+        </div>
+
+        <div class="tarjetas-contenedor" id="ocio" style="display: grid;">
+            <div class="tarjeta-servicio">
+                <img src="https://fontanarcentrocomercial.com/wp-content/uploads/2023/01/Foto-Fachada.jpg" alt="Centro Comercial Fontanar">
+                <h3>Centro Comercial Fontanar</h3>
+                <a href="{{ url_for('prediccion_empresa', empresa='fontanar') }}" class="boton-servicio">Ver Predicciones</a>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <img src="https://obycon.com/wp-content/uploads/2022/02/Parque-Centro-Chia-2.jpg" alt="Centro Comercial Centro Chía">
+                <h3>Centro Comercial Centro Chía</h3>
+                <a href="{{ url_for('prediccion_empresa', empresa='centrochia') }}" class="boton-servicio">Ver Predicciones</a>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF9nck1mpaSkyHeyNIVzTwjVUo3mwlhV3ryw&s" alt="Teatro Fahrenheit 451">
+                <h3>Teatro Fahrenheit 451</h3>
+                <a href="{{ url_for('prediccion_empresa', empresa='teatrofah') }}" class="boton-servicio">Ver Predicciones</a>
+            </div>
+        </div>
+        
+        <div class="tarjetas-contenedor" id="deportes" style="display: grid;">
+            <div class="tarjeta-servicio">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZfR15OGUS-heVUoKt0XvTa-CFj8YRhehHgg&s" alt="PlayZone VIP">
+                <h3>PlayZone VIP</h3>
+                <a href="{{ url_for('prediccion_empresa', empresa='playzonevip') }}" class="boton-servicio">Ver Predicciones</a>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/5b/14/6a/photo1jpg.jpg?w=1200&h=-1&s=1" alt="Montaña Oso">
+                <h3>Parque Montaña Oso</h3>
+                <a href="{{ url_for('prediccion_empresa', empresa='montañaoso') }}" class="boton-servicio">Ver Predicciones</a>
+            </div>
+
+            <div class="tarjeta-servicio">
+                <img src="https://files.lafm.com.co/assets/public/styles/twitter/public/2023-05/portada_centro_chia.jpg.webp?VersionId=H6_Tc0VlOSb4jsTKNlsJimrCIR6_Qebn&itok=GkF-9LlF" alt="Parque Natural Centro Chia">
+                <h3>Parque Natural Centro Chia</h3>
+                <a href="{{ url_for('prediccion_empresa', empresa='parquecentrochia') }}" class="boton-servicio">Ver Predicciones</a>
+            </div>
+        </div>
+    </div>
+</body>

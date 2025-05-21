@@ -1,0 +1,258 @@
+<!-- templates/EvaluacionModelo.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validacion Cruzada</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff0f9; 
+        }
+        .sidebar {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .nav-link.active {
+            background-color: #e0f2fe; 
+            color: #0369a1; 
+            font-weight: 600;
+        }
+        
+        .article-title {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-top: 1.5rem; 
+            margin-bottom: 1rem;
+        }
+        .sub-article-title {
+            font-size: 1.25rem; 
+            font-weight: 600;
+            margin-top: 1.5rem; 
+            margin-bottom: 1rem;
+        }
+        .content-card {
+            padding: 2rem; 
+            border-radius: 0.75rem; 
+            box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+            margin-bottom: 2.5rem;
+            border: 1px solid;
+        }
+
+        .content-card.pastel-sky {
+            background-color: #e6f4f5; 
+            border-color: #b7e0e3;
+        }
+
+        .content-card.pastel-sky .section-title,
+        .content-card.pastel-sky .article-title,
+        .content-card.pastel-sky .sub-article-title {
+            color: #065663;
+        }
+
+        .content-card.pastel-indigo {
+            background-color: #f0f2ff;
+            border-color: #e0e7ff;
+        }
+
+        .content-card.pastel-indigo .section-title,
+        .content-card.pastel-indigo .article-title,
+        .content-card.pastel-indigo .sub-article-title{
+            color: #4338ca;
+        }
+
+        .main-title-area {
+            text-align: center;
+            padding: 1.5rem 1rem;
+           background-color: #ede7f6; 
+        border-bottom: 1px solid #d1c4e9;;
+            margin-bottom:2.5rem; 
+        }
+        .main-title-area h1 {
+            font-size: 2rem; 
+            font-weight: 700;
+            color: #ae4af1; 
+        }
+        .main-title-area .subtitle {
+            font-size: 1rem; 
+            color: #ae4af1;
+        }
+        .main-container {
+            display: flex;
+            gap: 2rem; 
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .main-container {
+                flex-direction: row;
+            }
+        }
+        .main-content-area {
+            flex-grow: 1;
+        }
+        .btn {
+            padding: 0.8rem 1.6rem; 
+            border-radius: 0.75rem; 
+            font-weight: 600;
+            transition: all 0.3s ease-in-out; 
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            border: none;
+        }
+        .btn:hover {
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+        }
+        .btn-primary {
+            background-color: #4299e1; 
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #3182ce; 
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 2rem; 
+            margin-bottom: 1.5rem; 
+        }
+        li {
+            margin-bottom: 0.75rem; 
+            color: #546e7a;
+        }
+        p {
+            line-height: 1.75; 
+            margin-bottom: 1.5rem; 
+            color: #6b7280; 
+        }
+        .info-card {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 2rem; 
+            border-radius: 0.75rem; 
+            margin-bottom: 1.5rem; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .info-card-title {
+            font-size: 1.25rem; 
+            font-weight: 600;
+            color: #2d3748; 
+            margin-bottom: 0.75rem; 
+        }
+
+        
+        .image-placeholder-container {
+            width: 100%; 
+        }
+        @media (min-width: 768px) { 
+            .image-placeholder-container {
+                width: 33.333333%; 
+                padding-left: 1rem; 
+        }
+
+        .image-placeholder {
+            background-color: #ffffff;
+            border: 2px dashed #a0aec0; 
+            border-radius: 0.75rem; 
+            padding: 1.5rem; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px; 
+            height: 100%;
+            font-size: 0.9rem; 
+            color: #718096; 
+        }
+        .image-placeholder img {
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 250px; /* Ajustado */
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar {
+            width: 100%;
+           
+            background-color: #f7fafc; 
+            padding: 2rem; 
+            border-radius: 1rem; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            margin-bottom: 2rem; 
+        }
+        .sidebar h2 {
+            font-size: 1.5rem; 
+            font-weight: 600;
+            color: #4a5568; 
+            margin-bottom: 1.5rem; 
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+        .sidebar nav ul {
+            margin-bottom: 0.125rem; 
+        }
+        .sidebar nav ul li a {
+            display: block;
+            padding: 0.25rem; 
+            color: #718096; 
+            border-radius: 0.5rem; 
+            transition: all 0.3s ease-in-out; 
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .sidebar nav ul li a:hover {
+            background-color: #edf2f7; 
+            color: #4a5568; 
+            transform: translateX(4px); 
+        }
+        .sidebar nav ul li a.active {
+            background-color: #4299e1; 
+            color: white;
+            font-weight: 600;
+        }
+       
+        .content-card .section-title {
+            margin-bottom: 0.5rem; 
+        } /* Added missing closing brace */
+        .text-content {
+             margin-bottom: 1rem; 
+        }
+        @media (min-width: 768px) { 
+                margin-bottom: 0; 
+        }
+    </style>
+</head>
+
+<body class="text-slate-700">
+    <div class="main-container max-w-screen-xl mx-auto p-4 md:p-4 lg:p-4">
+        <main class="main-content-area">
+            <div class="main-title-area">
+                <h2>Validación Cruzada - {{ empresa }}</h2>
+                <p class="subtitle">Evaluacion del modelo</p>
+            </div>
+            <section class="content-card pastel-sky">
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-x-6"> 
+                    <div class="md:w-2/3 text-content">
+                        <h4>Errores RMSE por cada uno de los 5 pliegues:</h4>
+                        <ul>
+                            {% for score in rmse_folds %}
+                                <li>Pliegue {{ loop.index }}: {{ score }}</li>
+                            {% endfor %}
+                        </ul>
+
+                        <h4>Promedio de RMSE:</h4>
+                        <p><strong>{{ rmse_promedio }}</strong></p>
+
+                        <a href="{{ url_for('evaluacion') }}" class="btn-primary">Volver al inicio</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
